@@ -1,0 +1,25 @@
+{
+  "name": "@paulll/ascii-separated-values",
+  "version": "1.0.0",
+  "description": "ASCII (\\x1f, \\x1e)-separated values file streaming parser/writer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/paulll/ascii-separated-values"
+  },
+  "keywords": [
+    "csv",
+    "asv",
+    "binary",
+    "ascii"
+  ],
+  "author": "paulll",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
