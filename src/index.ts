@@ -41,9 +41,7 @@ export async function* parse(stream: AsyncIterable<String>, validate=true) {
         const rows = `${partialRow}${chunk}`.split('\x1e');
         const newPartialRow = rows.pop();
 
-        if (!newPartialRow) {
-            continue;
-        } else {
+        if (newPartialRow !== undefined) {
             partialRow = newPartialRow;
         }
 
@@ -66,6 +64,6 @@ export async function* parse(stream: AsyncIterable<String>, validate=true) {
             throw new InconsistentRowLengthError(`Inconsistent trailing row length. Expected ${rowLength} columns, given: ${JSON.stringify(parsedRow)}.\nLooks like truncated/unflushed input.`);
         }
 
-        yield partialRow.split('\x1f');
+        yield parsedRow;
     }
 }
