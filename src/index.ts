@@ -41,9 +41,9 @@ export async function* parse(stream: AsyncIterable<String>, validate=true) {
         const rows = `${partialRow}${chunk}`.split('\x1e');
         const newPartialRow = rows.pop();
 
-        if (newPartialRow !== undefined) {
-            partialRow = newPartialRow;
-        }
+        // newPartialRow is never undefined because .split() never returns empty array
+        // @ts-ignore
+        partialRow = newPartialRow;
 
         for (const row of rows) {
             const parsedRow = row.split('\x1f');
